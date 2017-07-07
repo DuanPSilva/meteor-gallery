@@ -15,16 +15,6 @@ import { Router } from "meteor/iron:router";
 // * jquery (Biblioteca JQuery)
 // * twbs:botstrap (Biblioteca oficial Bootstrap)
 
-//LEMBRAR DO COMANDO NO CONSOLE
-//SE NÃO O LOGIN NÃO FUNCIONA
-//export ROOT_URL='http://btree-duanps.c9users.io:8080'
-
-Meteor.startup( function() {
-  // Set some environment variables...
-  process.env.ROOT_URL = 'http://btree-duanps.c9users.io:8080';
-  Meteor.absoluteUrl.defaultOptions.rootUrl = 'http://btree-duanps.c9users.io:8080';
-});
-
 /****** BANCO DE DADOS ******/
 import { Mongo } from 'meteor/mongo';
 //Inicia a coleção no MongoDB
