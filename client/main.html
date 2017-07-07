@@ -1,0 +1,320 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="pt-br">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <link rel="shortcut icon" href="favicon.ico" >
+  <title>Bruna Lange Fotografia</title>
+  
+  <!-- Custom Fonts -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">  
+</head>
+
+<body>
+</body>
+
+<template name="image">
+  <li>
+    <img src="{{base64}}" alt="{{nome}}" />
+    {{#if currentUser}}<button class="delete">&times;</button>{{/if}}
+</li>
+</template>
+
+<template name="menu">
+    <!-- menu -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick="$('#menu-close').click();">Menu</a>
+            </li>
+            <li>
+                <a href="#top" onclick="$('#menu-close').click();">Home</a>
+            </li>
+            <li>
+                <a href="#sobre" onclick="$('#menu-close').click();">Sobre</a>
+            </li>
+            <li>
+                <a href="#services" onclick="$('#menu-close').click();">Serviços</a>
+            </li>
+            <li>
+                <a href="#portfolio" onclick="$('#menu-close').click();">Ensaios</a>
+            </li>
+            <li>
+                <a href="#location" onclick="$('#menu-close').click();">Localização</a>
+            </li>
+            <li>
+                <a href="#contact" onclick="$('#menu-close').click();">Contato</a>
+            </li>
+        </ul>
+    </nav>
+</template>
+
+<template name="adminAdd">
+  <div class="modal fade" id="imageModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Adicionar Imagem</h4>
+        </div>
+
+        <div class="modal-body">
+          <label for="name">Nome</label>
+          <input type="text" id="imageName" />
+          
+          <label for="imageFile">Imagem</label>
+          <input type="file" id="imageFile" />
+          
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="save">Salvar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="home">
+    {{> menu}}
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            
+            <div id="adminDiv">
+                {{> loginButtons}}
+                {{> adminAdd}}
+                {{#if currentUser}}<button id="admin">Adicionar Imagem</button>{{/if}}   
+            </div>
+            
+            <h1>BRUNA LANGE</h1>
+            <h3>FOTOGRAFIAS</h3>
+            <br>
+            <a href="#sobre" class="btn btn-dark btn-lg">Descubra Mais</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Uma fotografia é um instante de vida capturado para a eternidade!</h2>
+                    
+                </div>
+            </div>
+           
+        </div>
+      
+    </section>
+
+    <section id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Nossos serviços</h2>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-6">
+                         <div class="service-item">             
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-lightbulb-o  fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Ensaios em studio</strong>
+                                </h4>
+                                <p>Descrição</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                         <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-image fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Ensaios externos</strong>
+                                </h4>
+                                <p>Descrição</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-book fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Books</strong>
+                                </h4>
+                                <p>Descrição</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i> 
+                                    <i class="fa fa-camera fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Acompanhamentos</strong>
+                                </h4>
+                                <p>Descrição</p>
+                             </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-calendar fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Aniversários</strong>
+                                </h4>
+                                <p>Descrição</p>
+                           </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-flag fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Eventos</strong>
+                                </h4>
+                                <p>Descrição</p>
+                           </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Callout -->
+    <aside class="callout">
+        <div class="text-vertical-center">
+            <h1>Uma fotografia é um instante de vida capturado para a eternidade!</h1>
+        </div>
+    </aside>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Ensaios</h2>
+                    <hr class="small">
+                        <ul id="ensaios">
+                            {{#each images}}
+                                {{> image}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Call to Action -->
+    <aside class="call-to-action bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>Solicite um Orçamento</h3>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalForm">Clique aqui</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Contact Form -->
+    <div id="modalForm" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+          <h4 class="modal-title">Solicite seu orçamento</h4>
+          </div>
+          <div class="modal-body">
+            <form id="contactForm" data-toggle="validator" role="form">
+                <div class="form-group">
+                    <label for="inputNome">Nome</label>
+                    <input class="form-control" type="text" id="inputNome" value="" required />
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Informe seu email">
+                    <small id="emailHelp" class="form-text text-muted">Seu endereço de email não será divulgado.</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputMensagem">Mensagem</label>
+                    <textarea class="form-control noresize" id="inputMensagem" rows="3"></textarea>
+                </div>
+                <div class="text-center"><button type="submit" class="btn btn-primary">Enviar</button></div>
+            </form>
+           </div>
+             <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Map -->
+    <section id="location" class="map">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1071.641677931582!2d-52.406333877525526!3d-26.87145825087024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabbbbf5a89438c4c!2sRosa+Modas!5e1!3m2!1spt-BR!2sbr!4v1495509116268"></iframe>
+        <br />
+        <small>
+            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1071.641677931582!2d-52.406333877525526!3d-26.87145825087024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabbbbf5a89438c4c!2sRosa+Modas!5e1!3m2!1spt-BR!2sbr!4v1495509116268"></a>
+        </small>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div id="contact" class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Entre em contato</strong>
+                    </h4>
+                    <p>R. Nereu Ramos, 564 - Centro
+                        <br>Xanxerê - SC, 89820-000</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (049) 99924-8641</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">bruna_langee@hotmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/pg/brunalanguefotografia/photos/?tab=album&album_id=891055807600182"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/brunalfotografias/"><i class="fa fa-instagram fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Duan Pedroso da Silva 2017</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+</template>
